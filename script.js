@@ -1,28 +1,41 @@
-// To make rock paper scissors, I need to be able to press a button and get a result based on the computer's choice.
-function result(playerChoice) {
-  let choices = ['rock', 'paper', 'scissors']
-  let computerChoice = choices[Math.floor(Math.random() * 3)]
-  console.log(computerChoice);
+function getComputerChoice() {
+  let choices = ['rock', 'paper', 'scissors'];
 
-  // Hey, you're trying to optimize again. We can come back to this later, buddy. Lets just start with something that works.
-  switch (playerChoice) {
+  return choices[Math.floor(Math.random() * 3)];
+}
+
+// Don't optimize. Just see it through
+function playRound(playerSelection, computerSelection) {
+  switch (playerSelection.toLowerCase()) {
     case 'rock':
-      if (computerChoice == 'scissors') {
-        console.log('You win! :^)')
-      } else if (playerChoice == computerChoice) {
-        console.log('It\'s a draw! :^|');
+      if (computerSelection == 'scissors') {
+        return `You win! :) ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}`
+      } else if (computerSelection == 'paper') {
+        return `You lose! :( ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}`
       } else {
-        console.log('You lose :^(')
+        return `It's a draw! ${playerSelection.toUpperCase()} == ${computerSelection.toUpperCase()}`
       }
       break;
     case 'paper':
+      if (computerSelection == 'rock') {
+        return `You win! :) ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}`
+      } else if (computerSelection == 'scissors') {
+        return `You lose! :( ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}`
+      } else {
+        return `It's a draw! ${playerSelection.toUpperCase()} == ${computerSelection.toUpperCase()}`
+      }
       break;
     case 'scissors':
+      if (computerSelection == 'paper') {
+        return `You win! :) ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}`
+      } else if (computerSelection == 'rock') {
+        return `You lose! :( ${computerSelection.toUpperCase()} beats ${playerSelection.toUpperCase()}`
+      } else {
+        return `It's a draw! ${playerSelection.toUpperCase()} == ${computerSelection.toUpperCase()}`
+      }
       break;
     default:
-      console.log("Oh noo... This can't be!")
+      return 'Oh no.. Th-Th-Th-This can\'t be!'
       break;
   }
 }
-
-result('rock')
