@@ -35,7 +35,19 @@ function playRound(playerSelection, computerSelection) {
       }
       break;
     default:
-      return 'Oh no.. Th-Th-Th-This can\'t be!'
+      return "Uh.. Lets try this again. Type rock, paper, or scissors"
       break;
   }
 }
+
+function game() {
+  let computerChoice;
+  let playerChoice;
+  for (i = 0; i < 5; i++) {
+    playerChoice = prompt("Type rock, paper, or scissors", "");
+    computerChoice = getComputerChoice();
+    console.log(playRound(playerChoice, computerChoice));
+  }
+}
+
+game()
