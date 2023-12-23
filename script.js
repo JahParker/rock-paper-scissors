@@ -60,10 +60,6 @@ function playRound(playerSelection) {
   }
 }
 
-function test() {
-  console.log("this is a test");
-}
-
 function game() {
   scoreboard.textContent = `Player: ${playerScore} | Computer: ${computerScore}`
   const buttons = document.querySelectorAll('button');
