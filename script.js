@@ -41,6 +41,7 @@ function playRound(playerSelection) {
       result.textContent = "Uh.. Lets try this again. Type rock, paper, or scissors"
       break;
   }
+  
 }
 
 function test() {
@@ -48,11 +49,15 @@ function test() {
 }
 
 function game() {
+  scoreboard.textContent = `Player: ${playerScore} | Computer: ${computerScore}`
   const buttons = document.querySelectorAll('button');
   buttons.forEach((button) => {
     const playerChoice = button.value;
     button.addEventListener('click', () => {playRound(playerChoice)});
   });
 }
+let playerScore = 0;
+let computerScore = 0;
+const scoreboard = document.querySelector('#score');
 
 game()
